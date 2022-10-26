@@ -1,0 +1,20 @@
+fib:
+	addi	sp, sp, -16
+	sw	ra, 12(sp)
+	sw	s1, 8(sp)
+	sw	s0, 4(sp)
+	li	s0, 1
+	li	s1, 1
+L1:
+	beq	s0, a0, L2
+	sw	s0, 0(sp)
+	add	s2, s0, s1
+	add s0, s1,x0
+	add s1,x0,s2
+	j	L1
+L2:
+	lw	ra, 12(sp)
+	lw	s1, 8(sp)
+	lw	s0, 4(sp)
+	addi	sp, sp, 16
+	jr	ra
